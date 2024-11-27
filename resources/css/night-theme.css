@@ -1,0 +1,57 @@
+/* Navbar */
+
+.customNavbar {
+    background-color: black !important;
+}
+
+.navbarText {
+    color: white !important;
+}
+
+/* Sidebar */
+
+.customSidebar {
+    background-color: #263238 !important;
+}
+
+.sidebar-footer {
+    background-color: #889be0 !important;
+}
+
+.navlogo.nav-link:hover {
+    background-color: #263238 !important;
+    color: #e7e8d1 !important;
+}
+
+.sidebar .nav-link {
+    color: #e7e8d1 !important;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #9ad5df;
+    color: #555b73 !important;
+}
+
+.sidebar-footer .nav-link {
+    color: #2c2f3b !important;
+}
+
+.sidebar-footer .nav-link:hover.day-theme {
+    background-color: #3b497a !important;
+    color: #e7e8d1 !important;
+}
+
+/* Body */
+
+body {
+    background-color: #546e7a !important;
+}
+
+.pageHeading {
+    color: #e7e8d1 !important;
+}
+
+.contentCard {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+        /* Strong shadow */ 0 15px 40px rgba(0, 0, 0, 0.1); /* Fading effect */
+}
