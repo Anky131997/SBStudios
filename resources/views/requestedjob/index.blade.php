@@ -78,16 +78,16 @@
                                             @if ($requestedJob->status == 'pending')
                                                 <div class="btn-group" role="group" aria-label="Basic example">
                                                     <button type="button" class="btn btn-primary"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-{{ $requestedJob->id }}"
                                                         onclick="sendDataToInput({{ $requestedJob->id }})">
                                                         <i class="bi bi-plus"></i>
                                                     </button>
-                                                    <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="modal-{{ $requestedJob->id }}" tabindex="-1"
+                                                        aria-labelledby="modalLabel-{{ $requestedJob->id }}" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                    <h1 class="modal-title fs-5" id="modalLabel-{{ $requestedJob->id }}">
                                                                         Approve and Assign the job</h1>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal"
@@ -147,16 +147,16 @@
                                                     {{-- <a type="button" href={{ route('requestedjob.show', $requestedJob) }} class="btn btn-warning"><i class="bi bi-eye-fill"></i></a> --}}
                                                     <button type="button"
                                                         class="btn btn-danger"data-bs-toggle="modal"
-                                                        data-bs-target="#canceljobModal"
+                                                        data-bs-target="#cancelmodal-{{ $requestedJob->id }}"
                                                         onclick="sendDataToCancel({{ $requestedJob->id }})"><i
                                                             class="bi bi-trash-fill"></i></button>
-                                                    <div class="modal fade" id="canceljobModal" tabindex="-1"
-                                                        aria-labelledby="canceljobModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="cancelmodal-{{ $requestedJob->id }}" tabindex="-1"
+                                                        aria-labelledby="cancelmodalLabel-{{ $requestedJob->id }}" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h1 class="modal-title fs-5"
-                                                                        id="canceljobModalLabel">
+                                                                        id="cancelmodalLabel-{{ $requestedJob->id }}">
                                                                         Cancel the job</h1>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal"
@@ -207,17 +207,17 @@
                                                 </div>
                                             @elseif ($requestedJob->status == 'canceled')
                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#restoreModal"
+                                                    data-bs-target="#modal-{{ $requestedJob->id }}"
                                                     onclick="sendDataToInput({{ $requestedJob->canceledjob->id }})">
                                                     <i class="bi bi-arrow-clockwise"></i>
                                                 </button>
-                                                <div class="modal fade" id="restoreModal" tabindex="-1"
-                                                    aria-labelledby="restoreModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="modal-{{ $requestedJob->id }}" tabindex="-1"
+                                                    aria-labelledby="modalLabel-{{ $requestedJob->id }}" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h1 class="modal-title fs-5" id="restoreModalLabel">
-                                                                    Approve and Assign the job</h1>
+                                                                <h1 class="modal-title fs-5" id="modalLabel-{{ $requestedJob->id }}">
+                                                                    Restore the Job</h1>
                                                                 <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal"
                                                                     aria-label="Close"></button>
@@ -231,7 +231,7 @@
                                                                     <div class="col-md-12 mb-4">
                                                                         <p class="fs-5">Job Description</p>
                                                                         <p class="fw-light">
-                                                                            {{ $requestedJob->canceledjob->desc }}
+                                                                            {{ $requestedJob->desc }}
                                                                         </p>
                                                                     </div>
                                                                     <div class="col-md-12 mb-4">

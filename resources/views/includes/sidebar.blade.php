@@ -1,9 +1,9 @@
-<div class="sidebar customSidebar {{ $theme }} d-flex flex-column" id="sidebar">
+<div class="sidebar customSidebar d-flex flex-column" id="sidebar">
     <div>
         <ul class="nav nav-pills flex-column">
             <li class="nav-item">
                 <a href="" class="navbar-brand nav-link day-theme navlogo mb-5 mt-5 mx-3 my-2"><img
-                        src="/images/logo.png" class="logoImg" alt=""> <span class="fs-4">SB Studios</span></a>
+                        src="/images/logo.png" class="logoImg" alt=""> <span class="fs-4">SB STUDIOS</span></a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('dashboard') }}" id="dashboardLink" class="nav-link day-theme mx-3 my-2">

@@ -7,19 +7,20 @@ use App\Http\Controllers\DailyUpdateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RequestedJobsController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
 
 
+Route::get('/', [WelcomeController::class, 'welcome'])->name('home');
+
 Route::get('/set-theme/{theme}',[ThemeController::class,'setTheme'])->name('set.theme');
 Route::get('/get-theme',[ThemeController::class,'getCookie'])->name('get.theme');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
 Route::get('users', [UserController::class, 'index'])
     ->middleware('CheckSpecificUser')
@@ -72,6 +73,11 @@ Route::get('register', [RegisteredUserController::class, 'create'])
 
 Route::post('register', [RegisteredUserController::class, 'store']);
 
+Route::get('/createserviceimg', [ServiceController::class, 'createServiceImage'])->name('service.create');
+
+Route::post('/createserviceimg/store', [ServiceController::class, 'storeServiceImage'])->name('service.store');
+
+Route::get('/createserviceimg/show', [ServiceController::class, 'showServiceImage'])->name('service.show');
 
 Route::get('profile/{id?}', [ProfileController::class, 'show'])->name('profile');
 

@@ -51,6 +51,7 @@ class ApprovedJobsController extends Controller
      */
     public function store(Request $request)
     {
+        dd ($request->all());
         $newlyApprovedJob = ApprovedJob::create(
             [
                 'job_id' => $request->requestedJob,

@@ -6,11 +6,13 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/welcome.css',
                 'resources/css/day-theme.css',
                 'resources/css/night-theme.css',
                 'resources/css/day-preloader.css',
                 'resources/css/night-preloader.css',
                 'resources/js/app.js',
+                'resources/js/welcome.js',
             ],
             refresh: true,
         }),

@@ -17,6 +17,9 @@
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
+/* Guest Page */
+
+
 /* Sidebar */
 
 .sidebar {
@@ -87,6 +90,7 @@
     z-index: -20;
     /* padding: 20px; */
     transition: margin-left 0.3s;
+    font-family: "Parkinsans";
 }
 
 .sidebar:hover ~ .content-body {
@@ -163,11 +167,10 @@
     background-color: #00e676 !important;
 }
 
-
 /* Notification */
 
-.notificationDropdown{
-    width:30rem; 
-    height:400px; 
-    overflow:auto;
+.notificationDropdown {
+    width: 30rem;
+    height: 400px;
+    overflow: auto;
 }

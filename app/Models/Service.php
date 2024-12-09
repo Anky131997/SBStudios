@@ -10,4 +10,9 @@ class Service extends Model
     {
         return $this->hasMany(RequestedJob::class);
     }
+
+    public function serviceImages()
+    {
+        return $this->hasMany(ServiceImage::class);
+    }
 }
