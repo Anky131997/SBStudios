@@ -28,6 +28,68 @@
 </head>
 
 <body id="body" class="body day-theme">
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Notifications <span class="badge text-bg-danger">{{ $unreadNotifications->count() }}</span></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body mobileNotificationModal">
+                    {{-- <ul class="mobileNotificationModalList" style="" aria-labelledby="dropdownMenuButton"> --}}
+                        @foreach ($unreadNotifications as $unreadNotification)
+                            @if ($unreadNotification->data['badge'] == 'newFinalizeRequest')
+                                <a href= "{{ route('approvedjobs.index', $unreadNotification->id) }}"
+                                    class="card float-start newFinalizeRequest m-2">
+                                    <div class="card-body notificationBody">
+                                        <strong class="">{{ $unreadNotification->data['header'] }}</strong>
+                                        <small
+                                            class="float-end">{{ $unreadNotification->created_at->diffForHumans() }}</small>
+                                        <p class="pt-3">{{ $unreadNotification->data['message'] }}</p>
+                                    </div>
+                                </a>
+                            @elseif ($unreadNotification->data['badge'] == 'declinedFinalizeRequest')
+                                <a href= "{{ route('profile', $unreadNotification->id) }}"
+                                    class="card float-start declinedFinalizeRequest m-2">
+                                    <div class="card-body notificationBody">
+                                        <strong class="">{{ $unreadNotification->data['header'] }}</strong>
+                                        <small
+                                            class="float-end">{{ $unreadNotification->created_at->diffForHumans() }}</small>
+                                        <p class="pt-3">{{ $unreadNotification->data['message'] }}</p>
+                                    </div>
+                                </a>
+                            @elseif ($unreadNotification->data['badge'] == 'newApprovedJob')
+                                <a href= "{{ route('profile', $unreadNotification->id) }}"
+                                    class="card float-start newApprovedJob m-2">
+                                    <div class="card-body notificationBody">
+                                        <strong class="">{{ $unreadNotification->data['header'] }}</strong>
+                                        <small
+                                            class="float-end">{{ $unreadNotification->created_at->diffForHumans() }}</small>
+                                        <p class="pt-3">{{ $unreadNotification->data['message'] }}
+                                        </p>
+                                    </div>
+                                </a>
+                            @else
+                                <a @if (Auth::user()->role == 'superadmin' || Auth::user()->role == 'manager') href="{{ route('requestedjob.index', $unreadNotification->id) }}"
+                                    @elseif (Auth::user()->role == 'worker')
+                                        href= "{{ route('profile', $unreadNotification->id) }}" @endif
+                                    class="card m-2">
+                                    <div class="card-body notificationBody">
+                                        <strong class="">{{ $unreadNotification->data['header'] }}</strong>
+                                        <small
+                                            class="float-end">{{ $unreadNotification->created_at->diffForHumans() }}</small>
+                                        <p class="pt-3">{{ $unreadNotification->data['message'] }}
+                                        </p>
+                                    </div>
+                                </a>
+                            @endif
+                        @endforeach
+                    {{-- </ul> --}}
+                </div>
+            </div>
+        </div>
+    </div>
     @include('includes.sidebar')
     <div class="content-body">
         @include('includes.navbar')
@@ -41,4 +103,5 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css"
         rel="stylesheet">
 </body>
+
 </html>

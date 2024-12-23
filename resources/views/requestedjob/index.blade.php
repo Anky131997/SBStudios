@@ -79,7 +79,7 @@
                                                 <div class="btn-group" role="group" aria-label="Basic example">
                                                     <button type="button" class="btn btn-primary"
                                                         data-bs-toggle="modal" data-bs-target="#modal-{{ $requestedJob->id }}"
-                                                        onclick="sendDataToInput({{ $requestedJob->id }})">
+                                                        >
                                                         <i class="bi bi-plus"></i>
                                                     </button>
                                                     <div class="modal fade" id="modal-{{ $requestedJob->id }}" tabindex="-1"
@@ -94,7 +94,7 @@
                                                                         aria-label="Close"></button>
                                                                 </div>
                                                                 <form action="{{ route('approvedjobs.store') }}"
-                                                                    method="POST">
+                                                                    method="POST" enctype="multipart/form-data">
                                                                     @csrf
                                                                     <div class="modal-body">
                                                                         <div class="col-md-12 mb-4">
@@ -104,11 +104,7 @@
                                                                             </p>
                                                                         </div>
                                                                         <div class="col-md-12 mb-4">
-                                                                            <x-text-input id="requestedJob"
-                                                                                type="hidden" name="requestedJob"
-                                                                                :value="old('number')" required autofocus
-                                                                                autocomplete="username" />
-                                                                            {{-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> --}}
+                                                                            <input type="hidden" id="requestedJob" name='requestedJob' value={{$requestedJob->id}}>
                                                                         </div>
                                                                         <div class="col-md-12">
                                                                             <x-input-label for="user"
@@ -148,7 +144,7 @@
                                                     <button type="button"
                                                         class="btn btn-danger"data-bs-toggle="modal"
                                                         data-bs-target="#cancelmodal-{{ $requestedJob->id }}"
-                                                        onclick="sendDataToCancel({{ $requestedJob->id }})"><i
+                                                        ><i
                                                             class="bi bi-trash-fill"></i></button>
                                                     <div class="modal fade" id="cancelmodal-{{ $requestedJob->id }}" tabindex="-1"
                                                         aria-labelledby="cancelmodalLabel-{{ $requestedJob->id }}" aria-hidden="true">
@@ -173,11 +169,8 @@
                                                                             </p>
                                                                         </div>
                                                                         <div class="col-md-12 mb-4">
-                                                                            <x-text-input id="requestedJobCancel"
-                                                                                type="hidden"
-                                                                                name="requestedJobCancel"
-                                                                                :value="old('number')" required autofocus
-                                                                                autocomplete="username" />
+                                                                            <input type="hidden" id="requestedJobCancel" name='requestedJobCancel' value={{$requestedJob->id}}>
+                                                                            
                                                                             {{-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> --}}
                                                                         </div>
                                                                         <div class="col-md-12 mt-4">
@@ -207,8 +200,7 @@
                                                 </div>
                                             @elseif ($requestedJob->status == 'canceled')
                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-{{ $requestedJob->id }}"
-                                                    onclick="sendDataToInput({{ $requestedJob->canceledjob->id }})">
+                                                    data-bs-target="#modal-{{ $requestedJob->id }}">
                                                     <i class="bi bi-arrow-clockwise"></i>
                                                 </button>
                                                 <div class="modal fade" id="modal-{{ $requestedJob->id }}" tabindex="-1"
@@ -235,10 +227,8 @@
                                                                         </p>
                                                                     </div>
                                                                     <div class="col-md-12 mb-4">
-                                                                        <x-text-input id="requestedJob" type="hidden"
-                                                                            name="requestedJob" :value="old('number')"
-                                                                            required autofocus
-                                                                            autocomplete="username" />
+                                                                        <input type="hidden" id="requestedJob" name='requestedJob' value={{$requestedJob->id}}>
+
                                                                         {{-- <x-input-error :messages="$errors->get('name')" class="mt-2" /> --}}
                                                                     </div>
                                                                 </div>
@@ -260,32 +250,13 @@
                             </tbody>
                         </table>
                     </div>
+                    {{$requestedJobs->links('pagination::bootstrap-5')}}
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function sendDataToInput(data) {
-            const jobInput = document.getElementById('requestedJob');
-
-            if (jobInput) jobInput.value = data;
-        }
-
-        function sendDataToCancel(data) {
-            const cancelInput = document.getElementById('requestedJobCancel');
-
-            if (cancelInput) cancelInput.value = data;
-        }
-
-        // function sendDataToRestore(data) {
-        //     const jobInput = document.getElementById('requestedJob');
-        //     const cancelInput = document.getElementById('requestedJobCancel');
-
-        //     if (jobInput) jobInput.value = data;
-        //     if (cancelInput) cancelInput.value = data;
-        // }
-
         function filterTable() {
             // Get filter values
             const serviceFilter = document

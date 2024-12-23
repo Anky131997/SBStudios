@@ -27,7 +27,7 @@ class RequestedJobsController extends Controller
             }
         }
 
-        $requestedJobs = RequestedJob::all();
+        $requestedJobs = RequestedJob::query()->orderBy('created_at','desc')->paginate(10);
         $users = User::all();
 
         $uniqueCustomers = $requestedJobs->pluck('customer_id')->unique();
@@ -87,10 +87,11 @@ class RequestedJobsController extends Controller
             'status' => 'pending',
         ]);
 
+        $badge = 'newJob';
         $notificationHeader = "[". $jobCode ."] has been created";
-        $notificationMessage = $data['name']." has requested for a new job on ".$service->name;
+        $notificationMessage = ucfirst($data['name']." has requested for a new job on ".$service->name);
 
-        Notification::send($admin, new JobNotification($newRequestedJob,$notificationHeader,$notificationMessage));
+        Notification::send($admin, new JobNotification($newRequestedJob,$badge,$notificationHeader,$notificationMessage));
 
         $companyEmail = 'springbreakstudio@gmail.com';
         $message1 = (string) $data['name'] . ' has requested for a job on <b>' . $service->name . '</b> <br>';
@@ -108,7 +109,7 @@ class RequestedJobsController extends Controller
         Mail::to($companyEmail)->send(new FeedbackMail($displayText, $subject));
         Mail::to($customerEmail)->send(new FeedbackMail($customerMessage, $customerSubject));
 
-        return redirect()->route('contact')->with('success', 'Thanks for contacting us! We will reach out to you shortly');
+        return redirect()->back()->with('success', 'Thank You for contacting us!')->with('body', 'You will be hearing from us very soon!!');
     }
 
     /**

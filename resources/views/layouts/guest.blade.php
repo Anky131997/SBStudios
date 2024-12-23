@@ -31,11 +31,11 @@
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
             <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header customToastHeader">
-                    <strong class="me-auto">Thanks for contacting us</strong>
+                    <strong class="me-auto">{{session('success')}}</strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body customToastBody">
-                    You will be hearing from us very soon!!
+                    {{session('body')}}
                 </div>
             </div>
         </div>

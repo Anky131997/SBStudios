@@ -8,6 +8,18 @@
     color: white !important;
 }
 
+.mobileAdminSideToggle{
+    color: white !important;
+}
+
+.mobileAdminNav li a{
+    color: white !important;
+}
+
+.mobileAdminNavButton{
+    color: white!important;
+}
+
 /* Sidebar */
 
 .customSidebar {

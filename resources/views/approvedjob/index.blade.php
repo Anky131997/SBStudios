@@ -86,6 +86,14 @@
                                         <td>{{ $approvedjob->approvedBy->name }}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
+                                                @if ($approvedjob->requestfinalize == true)
+                                                    @if ($approvedjob->approvedBy->name == Auth::user()->name || Auth::user()->role == 'superadmin')
+                                                        <a type="button"
+                                                            href={{ route('approvedjobs.finalize', $approvedjob) }}
+                                                            class="btn btn-success text-white"><i
+                                                                class="bi bi-check-circle-fill"></i></a>
+                                                    @endif
+                                                @endif
                                                 <a type="button" href={{ route('approvedjobs.show', $approvedjob) }}
                                                     class="btn btn-primary text-white"><i
                                                         class="bi bi-calendar-plus-fill"></i></a>

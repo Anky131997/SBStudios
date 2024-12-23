@@ -16,4 +16,9 @@ class Customer extends Model
     {
         return $this->hasMany(RequestedJob::class);
     }
+
+    public function finishedjob()
+    {
+        return $this->hasMany(FinishedJob::class);
+    }
 }

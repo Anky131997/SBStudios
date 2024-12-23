@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'CheckSpecificUser' => \App\Http\Middleware\CheckSpecificUser::class,
             'Dashboard' => \App\Http\Middleware\Dashboard::class,
+            'CheckIfAdmin' => \App\Http\Middleware\CheckIfAdmin::class,
         ]);
         $middleware->append(ThemeMiddleware::class);
         $middleware->encryptCookies(except: [

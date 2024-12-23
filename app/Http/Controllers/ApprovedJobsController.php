@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ApprovedJob;
 use App\Models\Customer;
 use App\Models\DailyUpdate;
+use App\Models\FinalizeRequest;
 use App\Models\RequestedJob;
 use App\Models\Service;
 use App\Models\User;
@@ -18,8 +19,17 @@ class ApprovedJobsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($notification_id = null)
     {
+        // dd($notification_id);
+        if ($notification_id !== null) {
+            $notification = auth()->user()->notifications()->find($notification_id);
+            
+            if ($notification) {
+                $notification->markAsRead();
+            }
+        }
+        
         $approvedJobs = ApprovedJob::all();
         $requestedjobs = RequestedJob::where('status', 'approved')->get();
 
@@ -51,7 +61,6 @@ class ApprovedJobsController extends Controller
      */
     public function store(Request $request)
     {
-        dd ($request->all());
         $newlyApprovedJob = ApprovedJob::create(
             [
                 'job_id' => $request->requestedJob,
@@ -69,10 +78,11 @@ class ApprovedJobsController extends Controller
 
         $approvedBy = Auth::user()->name;
         $assignedTo = User::where('id', $request->user)->first();
+        $badge = 'newApprovedJob';
         $notificationHeader = "[". $requestjobchange->job_code ."] has been assigned to you";
         $notificationMessage = $approvedBy." has assigned you to a job";
 
-        Notification::send($assignedTo, new JobNotification($newlyApprovedJob,$notificationHeader,$notificationMessage));
+        Notification::send($assignedTo, new JobNotification($newlyApprovedJob,$badge,$notificationHeader,$notificationMessage));
 
         return redirect()->route('approvedjobs.index')->with('success', '');
     }
@@ -84,7 +94,17 @@ class ApprovedJobsController extends Controller
     {
         $dailyUpdates = DailyUpdate::where('job_id', $approvedjob->id)->orderBy('created_at', 'desc')->get();
         $updateCount = count($dailyUpdates);
-        return view('approvedjob.show', ['approvedjob' => $approvedjob, 'dailyUpdates' => $dailyUpdates, 'updateCount' => $updateCount]);
+        $allDeclinedRequests = FinalizeRequest::where('job_id', $approvedjob->id)->where('status', 'declined')->get();
+        $latestDeclineRequest = FinalizeRequest::where('job_id', $approvedjob->id)->where('status', 'declined')->orderBy('created_at', 'desc')->first();
+        return view('approvedjob.show', ['approvedjob' => $approvedjob, 'dailyUpdates' => $dailyUpdates, 'updateCount' => $updateCount, 'latestDeclineRequest' => $latestDeclineRequest, 'allDeclinedRequests' => $allDeclinedRequests]);
+    }
+
+    public function finalize(ApprovedJob $approvedjob)
+    {
+        $dailyUpdates = DailyUpdate::where('job_id', $approvedjob->id)->orderBy('created_at', 'desc')->get();
+        $finalizeRequest = FinalizeRequest::where('job_id', $approvedjob->id)->where('status', 'pending')->first();
+        // dd($finalizeRequest);
+        return view('approvedjob.finalize',['approvedjob'=> $approvedjob, 'dailyUpdates' => $dailyUpdates, 'finalizeRequest' => $finalizeRequest]); 
     }
 
 

@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="row justify-content-evenly">
         <div class="col-md-4 pt-5 pb-5">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">{{ $user->name }}</h3>
                     <h6 class="card-subtitle mb-2 text-body-secondary">{{ $user->designation }}</h6>

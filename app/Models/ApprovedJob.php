@@ -34,4 +34,9 @@ class ApprovedJob extends Model
     {
         return $this->hasMany(DailyUpdate::class, 'job_id');
     }
+
+    public function finalizeRequest()
+    {
+        return $this->hasMany(FinalizeRequest::class, 'job_id');
+    }
 }

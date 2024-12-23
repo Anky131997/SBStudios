@@ -69,8 +69,28 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(ApprovedJob::class, 'assigned_to_id');
     }
 
+    public function approvedFinishedJobs()
+    {
+        return $this->hasMany(FinishedJob::class, 'approved_by_id');
+    }
+
+    public function assignedFinishedJobs()
+    {
+        return $this->hasMany(FinishedJob::class, 'assigned_to_id');
+    }
+
+    public function declinedFinalizeRequest()
+    {
+        return $this->hasMany(FinalizeRequest::class, 'declined_by_id');
+    }
+
     public function canceledJobs()
     {
         return $this->hasMany(CanceledJob::class, 'canceled_by_id');
+    }
+
+    public function finalizedJobs()
+    {
+        return $this->hasMany(FinishedJob::class, 'finalized_by_id');
     }
 }

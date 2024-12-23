@@ -11,6 +11,8 @@ export default defineConfig({
                 'resources/css/night-theme.css',
                 'resources/css/day-preloader.css',
                 'resources/css/night-preloader.css',
+                'resources/css/welcome-day.css',
+                'resources/css/welcome-night.css',
                 'resources/js/app.js',
                 'resources/js/welcome.js',
             ],

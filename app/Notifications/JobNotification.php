@@ -12,15 +12,17 @@ class JobNotification extends Notification
     use Queueable;
 
     public $job;
+    public $badge;
     public $header;
     public $message;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct($job, $header, $message)
+    public function __construct($job, $badge, $header, $message)
     {
         $this->job = $job;
+        $this->badge = $badge;
         $this->header = $header;
         $this->message = $message;
     }
@@ -37,6 +39,7 @@ class JobNotification extends Notification
     
     public function toDatabase(object $notifiable): array{
         return [
+            'badge' => $this->badge,
             'header' => $this->header,
             'message' => $this->message,
         ];
@@ -44,6 +47,7 @@ class JobNotification extends Notification
 
     public function toBroadCast(object $notifiable): array{
         return [
+            'badge' => $this->badge,
             'header' => $this->header,
             'message' => $this->message,
         ];

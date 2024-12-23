@@ -1,0 +1,129 @@
+.homeCustomNav {
+    background-color: transparent !important;
+    transition: background-color 0.5s ease, opacity 0.5s ease-in-out;
+}
+
+.homeCustomNav.scrolled {
+    background-color: black !important;
+}
+
+.navbar-brand {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-brand.visible {
+    color: white !important;
+    opacity: 1;
+}
+
+.mobileNavbar-brand.visible{
+    color: white !important;
+    opacity: 1;
+}
+
+.sidebarToggleButton {
+    color: black !important;
+}
+
+.sidebarToggleButton.afterScroll {
+    color: white !important;
+}
+
+#loginLink {
+    color: black !important;
+}
+
+#loginLink.afterScroll {
+    color: white !important;
+}
+
+#dropdownMenuButton {
+    color: black !important;
+    text-decoration: none;
+}
+
+#dropdownMenuButton.afterScrollMenu {
+    color: white !important;
+}
+
+#navbarSupportedContent a{
+    color: black !important;
+    text-decoration: none;
+}
+
+#navbarSupportedContent.afterScrollMenu a{
+    color: white !important;
+}
+
+.service-item{
+    border-radius: 10px;
+    transition: background-color 0.5s ease, opacity 0.5s ease, color 0.3s ease;
+}
+
+.service-item:hover{
+    background-color: black !important;
+    color: white !important;
+    opacity: 0.5;
+}
+
+.service-item.active{
+    background-color: black !important;
+    color: white !important;
+    font-weight:bold;
+}
+
+.service-item.active:hover{
+    background-color: black !important;
+    color: white !important;
+    font-weight:bold;
+    opacity: 1;
+}
+
+.service-list li{
+    color: black !important;
+}
+
+.slider::before,
+.slider::after {
+    background: linear-gradient(
+        to right,
+        rgb(255, 255, 255) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    content: "";
+    height: 450px;
+    position: absolute;
+    width: 50px;
+    z-index: 2;
+}
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.form-control{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2),5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-select{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2),5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contactSubmitButton {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2),5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contactButtonInside {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2),5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer{
+    background-color: black !important;
+    color: white !important;
+}

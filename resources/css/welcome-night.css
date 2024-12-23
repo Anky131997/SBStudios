@@ -1,0 +1,136 @@
+body {
+    background-color: #171923 !important;
+    color: #e7e8f2 !important;
+}
+
+.homeCustomNav {
+    background-color: transparent !important;
+    transition: background-color 0.5s ease, opacity 0.5s ease-in-out;
+}
+
+.homeCustomNav.scrolled {
+    background-color: #e7e8f2 !important;
+}
+
+.navbar-brand {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-brand.visible {
+    color: #171923 !important;
+    opacity: 1;
+}
+
+.mobileNavbar-brand.visible {
+    color: #171923 !important;
+    opacity: 1;
+}
+
+.sidebarToggleButton {
+    color: #e7e8f2 !important;
+}
+
+.sidebarToggleButton.afterScroll {
+    color: #171923 !important;
+}
+
+#loginLink {
+    color: #e7e8f2 !important;
+}
+
+#loginLink.afterScroll {
+    color: #171923 !important;
+}
+
+#dropdownMenuButton {
+    color: #e7e8f2 !important;
+    text-decoration: none;
+}
+
+#dropdownMenuButton.afterScrollMenu {
+    color: #171923 !important;
+}
+
+#navbarSupportedContent a{
+    color: #e7e8f2 !important;
+    text-decoration: none;
+}
+
+#navbarSupportedContent.afterScrollMenu a{
+    color: #171923 !important;
+}
+
+.service-item{
+    border-radius: 10px;
+    transition: background-color 0.5s ease, opacity 0.5s ease, color 0.3s ease;
+}
+
+.service-item:hover{
+    background-color: #e7e8f2 !important;
+    color: #171923 !important;
+    opacity: 0.5;
+}
+
+.service-item.active{
+    background-color: #e7e8f2 !important;
+    color: #171923 !important;
+    font-weight:bold;
+}
+
+.service-item.active:hover{
+    background-color: #e7e8f2 !important;
+    color: #171923 !important;
+    font-weight:bold;
+    opacity: 1;
+}
+
+.service-list li{
+    color: #e7e8f2 !important;
+}
+
+.slider::before,
+.slider::after {
+    background: linear-gradient(
+        to right,
+        rgb(23, 25, 35) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    content: "";
+    height: 450px;
+    position: absolute;
+    width: 50px;
+    z-index: 2;
+}
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.form-control{
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4), 
+    inset 0px 0px 5px rgba(255, 255, 255, 0.1);
+}
+
+.form-select{
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4), 
+    inset 0px 0px 5px rgba(255, 255, 255, 0.1);
+}
+
+.contactSubmitButton {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2),5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contactButtonInside {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2),5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer{
+    background-color: #e7e8f2 !important;
+    color: #171923 !important;
+}
