@@ -1,66 +1,182 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SBStudios
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+SBStudios is a web application built from scratch for an upcoming startup company. It is designed to showcase the services offered by the company and streamline job requests from users. The platform is developed using Laravel, Bootstrap, and basic MySQL for database management.
 
-## About Laravel
+## Table of Contents
+- [About the Project](#about-the-project)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Contact](#contact)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## About the Project
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The SBStudios website is a feature-rich, custom-built web platform designed specifically for an upcoming startup company. Developed from the ground up using Laravel for the backend and Bootstrap for the frontend, this project emphasizes performance, scalability, and a seamless user experience. It caters to two distinct user groups with dedicated functionalities:
 
-## Learning Laravel
+### Guest Side
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+The guest side serves as the public-facing section of the website, designed to engage visitors and provide comprehensive information about the company's services. Key features include:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* Service Showcase: A detailed and visually appealing display of all the services offered by the company, enabling visitors to explore and understand what the company provides.
+* Job Request System: Visitors can easily submit job requests for specific services through an intuitive and straightforward interface, ensuring smooth interaction and lead generation.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+This section prioritizes accessibility and ease of use, providing potential customers with a welcoming and informative entry point to interact with the company.
 
-## Laravel Sponsors
+### Admin Panel
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+The admin panel is the management hub of the platform, designed exclusively for authorized users to oversee and handle operations efficiently. Key features include:
 
-### Premium Partners
+* Job Request Management: Admins can view, track, and manage all job requests submitted by visitors. This includes tools to update the status of requests, assign tasks, and maintain customer communication.
+* Secure Access: The admin panel is secured to ensure only authorized users can log in, protecting sensitive data and administrative controls.
+* Scalability: The system is designed to accommodate growth, allowing the admin panel to handle increasing job requests as the company expands.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## Technologies Used
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Laravel (PHP Framework)**
 
-## Code of Conduct
+The backend of the website is powered by Laravel, a modern PHP framework known for its elegant syntax and robust features. Laravel simplifies complex backend tasks with:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+* Routing and Middleware: For secure and efficient navigation across pages.
+* Eloquent ORM: For seamless interaction with the database using object-oriented syntax.
+* Blade Templating Engine: To create dynamic and reusable views efficiently.
+* Authentication: Built-in mechanisms for secure admin access.
 
-## Security Vulnerabilities
+2. **Bootstrap**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+The frontend of the website utilizes Bootstrap, a popular CSS framework, to ensure:
 
-## License
+* Mobile Responsiveness: A consistent and optimized user experience across all screen sizes.
+* Pre-styled Components: Quick and reliable UI development with built-in styles and components.
+* Customizable Design: Flexibility to tailor styles while maintaining a cohesive look and feel.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3. **MySQL**
+
+The website's database is managed with MySQL, a reliable and widely used relational database. It is used to:
+
+* Store and manage job requests, service data, and user information.
+* Ensure data consistency and integrity.
+* Handle queries efficiently, even as the application scales.
+
+4. **Node.js and NPM**
+
+Node.js and NPM are used for managing frontend dependencies and building assets. These technologies enable:
+
+* Webpack and Mix Integration: To compile CSS and JavaScript files for optimal performance.
+* Package Management: Easy installation and management of frontend libraries and tools.
+
+5. **Version Control with Git**
+
+Git is used for version control, enabling:
+
+* Collaborative Development: Efficiently track and merge changes across the development team.
+* Code Backup and Recovery: Safely manage project history and rollbacks when needed.
+
+6. **Modern Development Environment**
+
+The project is designed to be compatible with modern development environments, using tools like:
+
+* Composer: For managing Laravel dependencies.
+* Database Management Tools: phpMyAdmin - For interacting with and managing the MySQL database.
+
+---
+
+## Features
+
+* **Fully Dynamic:**
+The website is built to be fully dynamic, allowing seamless updates and content management for services and job requests without requiring code modifications.
+
+* **Mobile Responsive:**
+Designed with a mobile-first approach using Bootstrap, ensuring optimal user experience across all devices, including desktops, tablets, and smartphones.
+
+* **Service Showcase:**
+A dedicated section to display all the services offered by the company, providing users with detailed insights into what the business provides.
+
+* **Job Request Functionality:**
+Visitors can request specific services directly from the guest side, simplifying lead generation and client interaction.
+
+* **Secure Admin Panel:**
+An exclusive backend for authorized users to manage and process job requests, equipped with secure authentication mechanisms.
+
+* **User-Friendly Interface:**
+The intuitive UI/UX ensures smooth navigation for both visitors and administrators.
+
+* **Efficient Database Management:**
+MySQL database integration for secure storage and efficient handling of all user data, including service requests.
+
+* **Scalable Architecture:**
+The system is designed to support future enhancements, such as new service additions, user roles, and advanced analytics.
+
+* **Built with Modern Web Technologies:**
+Developed using Laravel and Bootstrap, ensuring robustness, flexibility, and maintainability.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Before setting up and running the SBStudios project, ensure that the following prerequisites are met:
+
+1. **Server Requirements**
+
+* **PHP**: Version 8.1 or higher.
+* **Web Server**: Apache or Nginx (Configured to support Laravel).
+* **Database**: MySQL 5.7 or higher / MariaDB.
+
+2. **Development Tools**
+
+* **Composer**: Dependency manager for PHP.
+* **Node.js**: Version 18.x or higher (for frontend asset compilation).
+* **NPM/Yarn**: Included with Node.js, used for managing frontend dependencies.
+* **Git**: For version control and cloning the repository.
+
+### Installation
+
+To install and run the SBStudios project, follow these steps:
+
+**Setup Instructions:**
+
+1. **Clone the Repository**
+```
+git clone https://github.com/Anky131997/SBStudios.git
+```
+
+2. **Install dependencies**
+```
+composer install
+npm install
+```
+
+3. Copy the .env.example file to .env and update the database configurations. After that, run the following command to generate the 'APP_KEY':
+```
+php artisan key:generate
+```
+
+4. **Migrate the Database**
+```
+php artisan migrate
+```
+
+5. **Seed the Database**
+```
+php artisan db:seed
+```
+
+6. **Start the Development Server**
+```
+php artisan serve
+```
+
+7. Access the application at http://localhost:8000
+
+---
+
+## Contact
+
+For any questions or issues, please contact the project maintainer at [ankanpolley0@gmail.com](mailto:ankanpolley0@gmail.com).
